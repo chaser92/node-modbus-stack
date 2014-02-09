@@ -84,5 +84,5 @@ Client.RESPONSES = {
       rtn.push(binary.end().vars.val);
     }
     return rtn;
-  },
+  }
 };
