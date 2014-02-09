@@ -93,15 +93,34 @@ Server.REQUESTS = {
 
 Server.RESPONSES = {
   // READ_INPUT_REGISTERS
-  4: function(registers) {
+  1: readCoils,
+  3: readRegisters,
+  4: readRegisters,
+  5: writeSingleCoil,
+  6: writeSingleRegister
+};
+
+function readCoils() {
+
+}
+
+function writeSingleCoil(coilNumber, value) {
+
+}
+
+function writeSingleRegister(register) {
+
+}
+
+function readRegisters(registers) {
+  function(registers) {
     if (!Array.isArray(registers) || registers.length != this.request.quantity) {
       throw new Error('Expected to write an "Array" of length "'+this.request.quantity+'"');
     }
-    var i=0, l=registers.length, put = Put()
-      .word8(registers.length*2);
+    var i=0, l=registers.length, put = Put().word8(registers.length*2);
     for (; i<l; i++) {
       put.word16be(registers[i]);
     }
     return put.buffer();
   }
-};
+}

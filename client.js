@@ -57,9 +57,7 @@ Client.REQUESTS = {
   }
 };
 
-Client.RESPONSES = {
-  // READ_INPUT_REGISTERS
-  4: function(bufferlist) {
+function readRegisters(bufferlist) {
     var rtn = [];
     var binary = Binary(bufferlist)
       .getWord8('byteLength').end();
@@ -69,7 +67,12 @@ Client.RESPONSES = {
       rtn.push(binary.end().vars.val);
     }
     return rtn;
-  },
+}
+
+Client.RESPONSES = {
+  // READ_INPUT_REGISTERS
+  3: readRegisters,
+  4: readRegisters,
   // WRITE_SINGLE_COIL
   5: function(bufferlist) {
     var rtn = [];

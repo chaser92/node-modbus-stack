@@ -1,6 +1,6 @@
 {
   "name": "modbus-stack",
-  "description": "A `StreamStack` implementation of the MODBUS protocol.",
+  "description": "(ChaserMod) A `StreamStack` implementation of the MODBUS protocol.",
   "version": "0.2.1",
   "author": "Nathan Rajlich <nathan@tootallnate.net>",
   "keywords": [
